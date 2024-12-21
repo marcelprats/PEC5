@@ -1,0 +1,9 @@
+# Excloure dependències d'Angular
+PEC5_Ej_Prac/node_modules/
+PEC5_Ej_Prac/.angular/
+PEC5_Ej_Prac/dist/
+
+# Fitxers del sistema
+.DS_Store
+Thumbs.db
+
