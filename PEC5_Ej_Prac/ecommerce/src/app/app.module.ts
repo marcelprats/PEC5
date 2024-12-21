@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { AppComponent } from './app.component';
 import { ArticleItemComponent } from './article-item/article-item.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleItemComponent, // Declara el componente hijo
+    ArticleItemComponent,
+    NavbarComponent, 
   ],
   imports: [
     BrowserModule,
-    CommonModule, // Asegúrate de importar esto
   ],
   providers: [],
   bootstrap: [AppComponent],
