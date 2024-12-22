@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Necessari per directives com *ngIf, *ngFor
+import { CommonModule } from '@angular/common'; 
 import { NavbarComponent } from './navbar.component';
 
 @NgModule({
   declarations: [
-    NavbarComponent // Declares el component Navbar
+    NavbarComponent 
   ],
   imports: [
-    CommonModule // Habilita *ngIf, *ngFor, etc.
+    CommonModule 
   ],
   exports: [
-    NavbarComponent // Fa el component disponible per altres mòduls
+    NavbarComponent
   ]
 })
 export class NavbarModule { }
