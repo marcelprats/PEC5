@@ -1,0 +1,54 @@
+<form #articleForm="ngForm" (ngSubmit)="onSubmit(articleForm)">
+    <div>
+      <label for="name">Nom de l'article:</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        [(ngModel)]="article.name"
+        required
+        minlength="3"
+        #nameCtrl="ngModel"
+      />
+      <div *ngIf="nameCtrl.invalid && nameCtrl.touched">
+        <small *ngIf="nameCtrl.errors?.required">Aquest camp és obligatori.</small>
+        <small *ngIf="nameCtrl.errors?.minlength">
+          El nom ha de tenir almenys 3 caràcters.
+        </small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="description">Descripció:</label>
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="article.description"
+        required
+        #descriptionCtrl="ngModel"
+      ></textarea>
+      <div *ngIf="descriptionCtrl.invalid && descriptionCtrl.touched">
+        <small *ngIf="descriptionCtrl.errors?.required">Aquest camp és obligatori.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="price">Preu:</label>
+      <input
+        type="number"
+        id="price"
+        name="price"
+        [(ngModel)]="article.price"
+        required
+        min="0"
+        #priceCtrl="ngModel"
+      />
+      <div *ngIf="priceCtrl.invalid && priceCtrl.touched">
+        <small *ngIf="priceCtrl.errors?.required">Aquest camp és obligatori.</small>
+        <small *ngIf="priceCtrl.errors?.min">El preu ha de ser positiu.</small>
+      </div>
+    </div>
+  
+    <button type="submit" [disabled]="articleForm.invalid">Enviar</button>
+  </form>
+  
