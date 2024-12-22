@@ -1,1 +1,38 @@
-<p>article-new-reactive works!</p>
+<form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="name">Nom de l'article:</label>
+      <input type="text" id="name" formControlName="name" />
+      <div *ngIf="articleForm.get('name')?.invalid && articleForm.get('name')?.touched">
+        <small *ngIf="articleForm.get('name')?.errors?.required">Aquest camp és obligatori.</small>
+        <small *ngIf="articleForm.get('name')?.errors?.minlength">
+          Ha de tenir almenys 3 caràcters.
+        </small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="price">Preu:</label>
+      <input type="number" id="price" formControlName="price" />
+      <div *ngIf="articleForm.get('price')?.invalid && articleForm.get('price')?.touched">
+        <small *ngIf="articleForm.get('price')?.errors?.required">Aquest camp és obligatori.</small>
+        <small *ngIf="articleForm.get('price')?.errors?.min">El preu ha de ser com a mínim 0.1€.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="imageUrl">URL de la imatge:</label>
+      <input type="text" id="imageUrl" formControlName="imageUrl" />
+      <div *ngIf="articleForm.get('imageUrl')?.invalid && articleForm.get('imageUrl')?.touched">
+        <small *ngIf="articleForm.get('imageUrl')?.errors?.required">Aquest camp és obligatori.</small>
+        <small *ngIf="articleForm.get('imageUrl')?.errors?.pattern">URL no vàlida.</small>
+      </div>
+    </div>
+  
+    <div>
+      <label for="isOnSale">A la venda:</label>
+      <input type="checkbox" id="isOnSale" formControlName="isOnSale" />
+    </div>
+  
+    <button type="submit" [disabled]="articleForm.invalid">Enviar</button>
+  </form>
+  

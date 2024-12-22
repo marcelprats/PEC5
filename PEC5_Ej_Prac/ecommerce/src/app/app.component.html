@@ -1,16 +1,4 @@
-<app-navbar>
-  <div *ngIf="navbar.componentActual === 'inici' || navbar.componentActual === 'articles'">
-    <app-article-list></app-article-list>
-  </div>
-  <div *ngIf="navbar.componentActual === 'nou-template'">
-    <app-article-new-template></app-article-new-template>
-  </div>
-  <div *ngIf="navbar.componentActual === 'nou-reactiu'">
-    <app-article-new-reactive></app-article-new-reactive>
-  </div>
-  
-</app-navbar>
-
-<h2>Formulari d'article</h2>
+<app-navbar></app-navbar>
+<app-article-list></app-article-list>
 <app-article-template-form></app-article-template-form>
-<p>Omple el formulari per afegir un article nou.</p>
+<app-article-new-reactive></app-article-new-reactive>
